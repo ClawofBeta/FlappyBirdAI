@@ -12,10 +12,16 @@ public class CameraFollow : MonoBehaviour {
 
 
 	void Update () {
-        transform.position = new Vector3(Player.position.x + 0.5f, 0, cameraZ);
-       
+		if(GameStateManager.GameState == GameState.Intro){
+			transform.position = new Vector3(Player.transform.position.x + 0.5f, 0, cameraZ);
+		}
+		else{
+			//transform.position = new Vector3(this.transform.position.x + 0.009f, 0, cameraZ);
+			transform.position += new Vector3(Time.deltaTime * Player.XSpeed, 0, 0);
+		}
+        
 	}
 
     
-    public Transform Player;
+    public FlappyScript Player;
 }

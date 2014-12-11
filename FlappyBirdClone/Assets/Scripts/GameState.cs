@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
 public enum GameState
 {
     Intro,
     Playing,
-    Dead
+    Remaking
 }
 
 public static class GameStateManager

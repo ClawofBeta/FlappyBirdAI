@@ -8,23 +8,25 @@ public class SpawnerScript : MonoBehaviour
     void Start()
     {
         SpawnObject = SpawnObjects[Random.Range(0, SpawnObjects.Length)];
-        Spawn();
+		Spawn ();
     }
 
     void Spawn()
     {
-        if (GameStateManager.GameState == GameState.Playing)
+
+		if (GameStateManager.GameState == GameState.Playing)
         {
             //random y position
             float y = Random.Range(-0.5f, 1f);
-            GameObject go = Instantiate(SpawnObject, this.transform.position + new Vector3(0, y, 0), Quaternion.identity) as GameObject;
+            Instantiate(SpawnObject, this.transform.position + new Vector3(0, y, 0), Quaternion.identity);
         }
-        Invoke("Spawn", Random.Range(timeMin, timeMax));
+		Invoke("Spawn", Random.Range(0.8f,2.0f));
+
     }
 
     private GameObject SpawnObject;
     public GameObject[] SpawnObjects;
 
-    public float timeMin = 0.7f;
-    public float timeMax = 2f;
+    //public float timeMin = 500f;
+    //public float timeMax = 1000f;
 }
