@@ -50,7 +50,7 @@ public class controller : MonoBehaviour {
 		}
 
 
-		for(int j = 0; j < neural_nets.Length; j++){
+		for(int j = 0; j < flappies.Length; j++){
 			int rand_val = Random.Range(0,tot_score);
 			int sum = 0;
 			neuralNet flappy_parent = null;
@@ -62,19 +62,18 @@ public class controller : MonoBehaviour {
 					break;
 				}
 			}
-			neural_nets[j] = new neuralNet();
 			float n_wx = flappy_parent.wx + Random.Range(-mutation_level, mutation_level);
 			float n_wy = flappy_parent.wy + Random.Range(-mutation_level, mutation_level);
-			neural_nets[j].wx = n_wx;
-			neural_nets[j].wy = n_wy;
-
+			Xweights[j] = n_wx;
+			Yweights[j] = n_wy;
+			int g = 0;
 		}
 
 		for (int k = 0; k < flappies.Length; k++){
 			FlappyScript fs = flappies[k];
 			fs.own_score = 1;
-			fs.nn.wx = neural_nets[k].wx;
-			fs.nn.wy = neural_nets[k].wy;
+			fs.nn.wx = Xweights[k];
+			fs.nn.wy = Yweights[k];
 			fs.next_pipe = fs.pipe_placeholder;
 			fs.transform.position = anchors[k].position;
 			fs.player_state = 1;
