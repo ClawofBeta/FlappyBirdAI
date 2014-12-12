@@ -62,10 +62,16 @@ public class controller : MonoBehaviour {
 					break;
 				}
 			}
-			float n_wx = flappy_parent.wx + Random.Range(-mutation_level, mutation_level);
-			float n_wy = flappy_parent.wy + Random.Range(-mutation_level, mutation_level);
-			Xweights[j] = n_wx;
-			Yweights[j] = n_wy;
+			Xweights[j] = flappy_parent.wx;
+			if (Random.Range(0, 10) <= 2){
+				float n_wx = flappy_parent.wx + Random.Range(-mutation_level, mutation_level);
+				Xweights[j] = n_wx;
+			}
+			Yweights[j] = flappy_parent.wy;
+			if (Random.Range(0, 10) >= 8){
+				float n_wy = flappy_parent.wy + Random.Range(-mutation_level, mutation_level);
+				Yweights[j] = n_wy;
+			}
 		}
 		/**
 		//cross stuff
