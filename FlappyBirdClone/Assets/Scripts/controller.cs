@@ -66,7 +66,6 @@ public class controller : MonoBehaviour {
 			float n_wy = flappy_parent.wy + Random.Range(-mutation_level, mutation_level);
 			Xweights[j] = n_wx;
 			Yweights[j] = n_wy;
-			int g = 0;
 		}
 
 		//cross stuff
