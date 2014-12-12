@@ -69,6 +69,15 @@ public class controller : MonoBehaviour {
 			int g = 0;
 		}
 
+		//cross stuff
+		for (int v = 0; v < flappies.Length; v += 2){
+			float old_weight = Xweights[v];
+			Xweights[v] = Xweights[v+1];
+			Xweights[v+1] = old_weight;
+
+		}
+
+
 		for (int k = 0; k < flappies.Length; k++){
 			FlappyScript fs = flappies[k];
 			fs.own_score = 1;
@@ -77,7 +86,6 @@ public class controller : MonoBehaviour {
 			fs.next_pipe = fs.pipe_placeholder;
 			fs.transform.position = anchors[k].position;
 			fs.player_state = 1;
-
 			Instantiate(explo, fs.transform.position, Quaternion.identity);
 		}
 
