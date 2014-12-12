@@ -88,7 +88,8 @@ public class controller : MonoBehaviour {
 			fs.player_state = 1;
 			Instantiate(explo, fs.transform.position, Quaternion.identity);
 		}
-
+		ScoreManagerScript.Score = 0;
+		GenManager.Score += 1;
 		GameStateManager.GameState = GameState.Playing;
 	}
 }

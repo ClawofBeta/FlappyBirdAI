@@ -217,7 +217,10 @@ public class FlappyScript : MonoBehaviour
             if (col.gameObject.tag == "Pipeblank") //pipeblank is an empty gameobject with a collider between the two pipes
             {
                 audio.PlayOneShot(ScoredAudioClip);
-                ScoreManagerScript.Score++;
+				if(ScoreManagerScript.Score < this.own_score){
+					ScoreManagerScript.Score = this.own_score;
+				}
+                //ScoreManagerScript.Score++;
 				//get_next_pipe();
 				this.own_score++;
             }
