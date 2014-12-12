@@ -20,7 +20,7 @@ public class SpawnerScript : MonoBehaviour
             float y = Random.Range(-0.5f, 1f);
             Instantiate(SpawnObject, this.transform.position + new Vector3(0, y, 0), Quaternion.identity);
         }
-		Invoke("Spawn", Random.Range(0.8f,2.0f));
+		Invoke("Spawn", Random.Range(1.0f,2.0f));
 
     }
 

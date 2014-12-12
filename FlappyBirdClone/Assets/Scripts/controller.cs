@@ -8,10 +8,15 @@ public class controller : MonoBehaviour {
 	public Transform[] anchors;
 	public GameObject explo;
 
+	public float[] Xweights;
+	public float[] Yweights;
+
 	// Use this for initialization
 	void Start () {
 		//causes flappies to ignore each other
 		Physics2D.IgnoreLayerCollision(8,8,true);
+		Xweights = new float[flappies.Length];
+		Yweights = new float[flappies.Length];
 	}
 	
 	// Update is called once per frame
@@ -27,7 +32,7 @@ public class controller : MonoBehaviour {
 			if(check_dead){
 				print ("respawning");
 				GameStateManager.GameState = GameState.Remaking;
-				Invoke ("respawn", 3f);
+				Invoke ("respawn", 5f);
 
 			}
 
@@ -44,7 +49,7 @@ public class controller : MonoBehaviour {
 			tot_score += flappies[i].own_score;
 		}
 
-		neuralNet[] neural_nets = new neuralNet[flappies.Length];
+
 		for(int j = 0; j < neural_nets.Length; j++){
 			int rand_val = Random.Range(0,tot_score);
 			int sum = 0;
