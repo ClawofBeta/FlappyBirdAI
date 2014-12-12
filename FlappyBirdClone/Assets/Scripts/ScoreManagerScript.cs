@@ -19,7 +19,10 @@ public class ScoreManagerScript : MonoBehaviour {
             if(Score < 10)
             {
                 //just draw units
+				(Tens.gameObject as GameObject).SetActive(false);
+				(Hundreds.gameObject as GameObject).SetActive(false);
                 Units.sprite = numberSprites[Score];
+
             }
             else if(Score >= 10 && Score < 100)
             {

@@ -43,7 +43,7 @@ public class controller : MonoBehaviour {
 		//GameStateManager.GameState = GameState.Remaking;
 		//print ("1");
 		//yield return new WaitForSeconds(5);
-		print ("2");
+		//print ("2");
 		int tot_score = 0;
 		for (int i = 0; i < flappies.Length; i++){
 			tot_score += flappies[i].own_score;
@@ -67,7 +67,7 @@ public class controller : MonoBehaviour {
 			Xweights[j] = n_wx;
 			Yweights[j] = n_wy;
 		}
-
+		/**
 		//cross stuff
 		for (int v = 0; v < flappies.Length; v += 2){
 			float old_weight = Xweights[v];
@@ -75,7 +75,7 @@ public class controller : MonoBehaviour {
 			Xweights[v+1] = old_weight;
 
 		}
-
+*/
 
 		for (int k = 0; k < flappies.Length; k++){
 			FlappyScript fs = flappies[k];
