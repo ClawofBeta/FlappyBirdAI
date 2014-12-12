@@ -44,7 +44,7 @@ public class neuralNet : MonoBehaviour {
 	}
 
 	public bool SweetSpotOrPipe(int LowerPipe, int LowerSweetSpot, int closer){
-		return ((LowerSweetSpot * closer) + (LowerPipe * (1 - closer) > 0));
+		return ((LowerSweetSpot * closer) + (LowerPipe * (1 - closer)) > 0);
 		}
 
 	public bool compute(float x_input, float y_input){
