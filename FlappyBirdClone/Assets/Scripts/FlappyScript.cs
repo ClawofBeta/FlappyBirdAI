@@ -25,8 +25,8 @@ public class FlappyScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		XSpeed = 1.3f;
-		VelocityPerJump = 2.0f;
+		XSpeed = 1.5f;
+		VelocityPerJump = 3.0f;
 		own_score = 1;
     }
 
@@ -79,7 +79,8 @@ public class FlappyScript : MonoBehaviour
 			if(next_pipe.Equals(null)){
 				float px = pipe_placeholder.transform.position.x - this.transform.position.x;
 				float py = pipe_placeholder.transform.position.y - this.transform.position.y;
-				if(nn.compute(px,py))
+				float ph = this.transform.position.y;
+				if(nn.compute(px,py,ph))
 				{
 					BoostOnYAxis();
 				}
@@ -88,7 +89,8 @@ public class FlappyScript : MonoBehaviour
 			else {
 				float dx = next_pipe.transform.position.x - this.transform.position.x;
 				float dy = next_pipe.transform.position.y - this.transform.position.y;
-				if(nn.compute(dx,dy)){
+				float dh = this.transform.position.y;
+				if(nn.compute(dx,dy,dh)){
                 BoostOnYAxis();
 				}
             }

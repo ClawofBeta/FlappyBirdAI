@@ -10,6 +10,7 @@ public class controller : MonoBehaviour {
 
 	public float[] Xweights;
 	public float[] Yweights;
+	public float[] Hweights;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,7 @@ public class controller : MonoBehaviour {
 		Physics2D.IgnoreLayerCollision(8,8,true);
 		Xweights = new float[flappies.Length];
 		Yweights = new float[flappies.Length];
+		Hweights = new float[flappies.Length];
 	}
 	
 	// Update is called once per frame
@@ -30,9 +32,9 @@ public class controller : MonoBehaviour {
 			}
 
 			if(check_dead){
-				print ("respawning");
+
 				GameStateManager.GameState = GameState.Remaking;
-				Invoke ("respawn", 5f);
+				Invoke ("respawn", 6f);
 
 			}
 
@@ -72,6 +74,11 @@ public class controller : MonoBehaviour {
 				float n_wy = flappy_parent.wy + Random.Range(-mutation_level, mutation_level);
 				Yweights[j] = n_wy;
 			}
+			Hweights[j] = flappy_parent.wh;
+			if (Random.Range(0,10) >= 8){
+				float n_wy = flappy_parent.wh + Random.Range(-mutation_level, mutation_level);
+				Yweights[j] = n_wy;
+			}
 		}
 		/**
 		//cross stuff
@@ -88,6 +95,7 @@ public class controller : MonoBehaviour {
 			fs.own_score = 1;
 			fs.nn.wx = Xweights[k];
 			fs.nn.wy = Yweights[k];
+			fs.nn.wh = Hweights[k];
 			fs.next_pipe = fs.pipe_placeholder;
 			fs.transform.position = anchors[k].position;
 			fs.player_state = 1;

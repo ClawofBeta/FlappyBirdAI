@@ -6,6 +6,8 @@ public class neuralNet : MonoBehaviour {
 	public float wy; //Y DISTANCE FROM SWEETSPOT TO PIPE, AKA HEIGHT OF PIPE - HEIGHT OF SWEETSPOT)
 	public float wx; //X DISTANCE FROM SWEETSPOT TO PIPE, AKA LENGTH FROM PIPE TO BIRD - LENGTH FROM SWEETSPOT TO BIRD)
 
+	public float wh; //Y 
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -28,7 +30,7 @@ public class neuralNet : MonoBehaviour {
 	}
 	// 
 	public int isLowerThanPipe(float y_input){
-		if (y_input > 0)
+		if (y_input - wh > 0)
 			return 1;
 		else
 			return 0;
@@ -41,18 +43,49 @@ public class neuralNet : MonoBehaviour {
 			return 0;
 	}
 
+	public int tooCloseToFloor(float h_input){
+		if(h_input < -1.2f){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+
+	}
+
+	public int closeToPipe(float x_input, float y_input){
+		if(x_input - y_input/wh - wx > 0){
+		//if(x_input - wx > 0){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+
+	}
+
+	public bool SweetOrFloor(int floor_in, int sweet_in, int close_in){
+		return ((floor_in + (sweet_in * (1 - close_in))) >= 0.5);
+
+	}
+
 	public bool SweetSpotOrPipe(int LowerPipe, int LowerSweetSpot, int closer){
 		return ((LowerSweetSpot * closer) + (LowerPipe * (1 - closer)) > 0);
 		}
 
-	public bool compute(float x_input, float y_input){
-		int LowerPipe = isLowerThanPipe (y_input);
-		int LowerSweetSpot = isLowerThanSweetSpot (y_input);
-		int closer = closerSweetSpot (x_input);
+	public bool compute(float x_input, float y_input, float h_input){
+		//int LowerPipe = isLowerThanPipe (y_input);
+		//int LowerSweetSpot = isLowerThanSweetSpot (y_input);
+		//int closer = closerSweetSpot (x_input);
 
-		return SweetSpotOrPipe (LowerPipe, LowerSweetSpot, closer);
-		//return LowerPipe > 0;
-		//return y_input > 0;
+		//return SweetSpotOrPipe (LowerPipe, LowerSweetSpot, closer);
+
+
+		int floor = tooCloseToFloor(h_input);
+		int sweet = isLowerThanSweetSpot(y_input);
+		int close = closeToPipe(x_input, y_input);
+
+		return SweetOrFloor(floor, sweet, close);
 
 	}
 }
