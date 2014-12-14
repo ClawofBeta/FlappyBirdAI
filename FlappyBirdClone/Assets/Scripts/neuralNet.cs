@@ -93,6 +93,6 @@ public class neuralNet : MonoBehaviour {
 		int close = closeToPipe(x_input, y_input);
 
 		return SweetOrFloor(floor, sweet, close);
-
+	
 	}
 }

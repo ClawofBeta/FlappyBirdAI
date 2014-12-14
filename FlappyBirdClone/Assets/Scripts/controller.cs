@@ -94,17 +94,17 @@ public class controller : MonoBehaviour {
 		for (int v = 0; v < flappies.Length; v += 2){
 			int r1 = Random.Range(0,4);
 
-			if(r1 >= 3){
-				int r2 = Random.Range (0,3);
-				if(r2 == 0){
-					float old_weightX = Xweights[v];
+			if(r1 >= 2){
+			//	int r2 = Random.Range (0,3);
+			//	if(r2 == 0 || r2 == 1){
+		/*			float old_weightX = Xweights[v];
 					Xweights[v] = Xweights[v+1];
-					Xweights[v+1] = old_weightX;
+					Xweights[v+1] = old_weightX; */
 
 					float old_weightY = Yweights[v];
 					Yweights[v] = Yweights[v+1];
 					Yweights[v+1] = old_weightY;
-				}
+		/*		}
 				else if (r2 == 1){
 					float old_weightY = Yweights[v];
 					Yweights[v] = Yweights[v+1];
@@ -113,8 +113,8 @@ public class controller : MonoBehaviour {
 					float old_weightH = Hweights[v];
 					Hweights[v] = Hweights[v+1];
 					Hweights[v+1] = old_weightH;
-				}
-				else{
+				} */
+		/*		else{
 					float old_weightX = Xweights[v];
 					Xweights[v] = Xweights[v+1];
 					Xweights[v+1] = old_weightX;
@@ -122,11 +122,11 @@ public class controller : MonoBehaviour {
 					float old_weightH = Hweights[v];
 					Hweights[v] = Hweights[v+1];
 					Hweights[v+1] = old_weightH;
-				}
+				} */
 
 			}
 
-			else if (r1 >= 2){
+		/*	else if (r1 >= 2){
 				int r2 = Random.Range (0,3);
 				if(r2 == 0){
 					float old_weightX = Xweights[v];
@@ -145,7 +145,7 @@ public class controller : MonoBehaviour {
 					Hweights[v+1] = old_weightH;
 				}
 
-			}	
+			}	 */
 
 		}
 
