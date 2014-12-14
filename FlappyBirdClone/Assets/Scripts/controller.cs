@@ -12,6 +12,8 @@ public class controller : MonoBehaviour {
 	public float[] Yweights;
 	public float[] Hweights;
 
+	public int speed;
+
 	// Use this for initialization
 	void Start () {
 		//causes flappies to ignore each other
@@ -76,8 +78,8 @@ public class controller : MonoBehaviour {
 			}
 			Hweights[j] = flappy_parent.wh;
 			if (Random.Range(0,10) >= 8){
-				float n_wy = flappy_parent.wh + Random.Range(-mutation_level, mutation_level);
-				Yweights[j] = n_wy;
+				float n_wh = flappy_parent.wh + Random.Range(-mutation_level, mutation_level);
+				Hweights[j] = n_wh;
 			}
 		}
 		/**

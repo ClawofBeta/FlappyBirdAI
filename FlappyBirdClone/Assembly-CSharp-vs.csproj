@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\controller.cs" />
      <Compile Include="Assets\Scripts\neuralNet.cs" />
      <Compile Include="Assets\Scripts\particle.cs" />
+     <Compile Include="Assets\speeder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

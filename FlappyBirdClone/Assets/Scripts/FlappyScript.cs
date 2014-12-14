@@ -25,8 +25,8 @@ public class FlappyScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		XSpeed = 1.5f;
-		VelocityPerJump = 3.0f;
+		XSpeed = 1.8f;
+		VelocityPerJump = 2.5f;
 		own_score = 1;
     }
 

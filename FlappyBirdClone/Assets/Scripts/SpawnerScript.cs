@@ -17,10 +17,10 @@ public class SpawnerScript : MonoBehaviour
 		if (GameStateManager.GameState == GameState.Playing)
         {
             //random y position
-            float y = Random.Range(0.1f, 0.9f);
+            float y = Random.Range(0.3f, 1.1f);
             Instantiate(SpawnObject, this.transform.position + new Vector3(0, y, 0), Quaternion.identity);
         }
-		Invoke("Spawn", Random.Range(2.5f, 4.0f));
+		Invoke("Spawn", Random.Range(2.0f, 3.5f));
 
     }
 
