@@ -67,7 +67,7 @@ public class controller : MonoBehaviour {
 				}
 			}
 			Xweights[j] = flappy_parent.wx;
-			if (Random.Range(0, 10) <= 2){
+			if (Random.Range(0, 10) >= 8){
 				float n_wx = flappy_parent.wx + Random.Range(-mutation_level, mutation_level);
 				Xweights[j] = n_wx;
 			}
@@ -82,15 +82,65 @@ public class controller : MonoBehaviour {
 				Hweights[j] = n_wh;
 			}
 		}
-		/**
+
 		//cross stuff
 		for (int v = 0; v < flappies.Length; v += 2){
-			float old_weight = Xweights[v];
-			Xweights[v] = Xweights[v+1];
-			Xweights[v+1] = old_weight;
+			int r1 = Random.Range(0,4);
+
+			if(r1 >= 3){
+				int r2 = Random.Range (0,3);
+				if(r2 == 0){
+					float old_weightX = Xweights[v];
+					Xweights[v] = Xweights[v+1];
+					Xweights[v+1] = old_weightX;
+
+					float old_weightY = Yweights[v];
+					Yweights[v] = Yweights[v+1];
+					Yweights[v+1] = old_weightY;
+				}
+				else if (r2 == 1){
+					float old_weightY = Yweights[v];
+					Yweights[v] = Yweights[v+1];
+					Yweights[v+1] = old_weightY;
+
+					float old_weightH = Hweights[v];
+					Hweights[v] = Hweights[v+1];
+					Hweights[v+1] = old_weightH;
+				}
+				else{
+					float old_weightX = Xweights[v];
+					Xweights[v] = Xweights[v+1];
+					Xweights[v+1] = old_weightX;
+
+					float old_weightH = Hweights[v];
+					Hweights[v] = Hweights[v+1];
+					Hweights[v+1] = old_weightH;
+				}
+
+			}
+
+			else if (r1 >= 2){
+				int r2 = Random.Range (0,3);
+				if(r2 == 0){
+					float old_weightX = Xweights[v];
+					Xweights[v] = Xweights[v+1];
+					Xweights[v+1] = old_weightX;
+				}
+				else if (r2 == 1){
+					float old_weightY = Yweights[v];
+					Yweights[v] = Yweights[v+1];
+					Yweights[v+1] = old_weightY;
+
+				}
+				else{
+					float old_weightH = Hweights[v];
+					Hweights[v] = Hweights[v+1];
+					Hweights[v+1] = old_weightH;
+				}
+
+			}	
 
 		}
-*/
 
 		for (int k = 0; k < flappies.Length; k++){
 			FlappyScript fs = flappies[k];
