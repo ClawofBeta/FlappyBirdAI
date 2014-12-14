@@ -10,11 +10,13 @@ public class neuralNet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		wx = wx + Random.Range(-0.1f, 0.1f);
+	/*	wx = wx + Random.Range(-0.1f, 0.1f);
 		wy = wy + Random.Range(-0.1f, 0.1f);
-		wh = wh + Random.Range(-0.1f, 0.1f);
+		wh = wh + Random.Range(-0.1f, 0.1f);*/
 
-
+		wx = Random.Range(-0.5f, 1f);
+		wy = Random.Range(-0.5f, 1f);
+		wh = Random.Range(-0.5f, 1f);
 	}
 	
 	// Update is called once per frame

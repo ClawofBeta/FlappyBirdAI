@@ -14,6 +14,8 @@ public class controller : MonoBehaviour {
 
 	public int speed;
 
+	private SpriteRenderer sr;
+
 	// Use this for initialization
 	void Start () {
 		//causes flappies to ignore each other
@@ -148,6 +150,10 @@ public class controller : MonoBehaviour {
 			fs.nn.wx = Xweights[k];
 			fs.nn.wy = Yweights[k];
 			fs.nn.wh = Hweights[k];
+
+			sr = fs.GetComponent<SpriteRenderer>();
+			sr.color = new Color(fs.nn.wx, fs.nn.wy, fs.nn.wh);
+
 			fs.next_pipe = fs.pipe_placeholder;
 			fs.transform.position = anchors[k].position;
 			fs.player_state = 1;
