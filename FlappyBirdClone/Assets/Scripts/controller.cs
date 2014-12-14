@@ -55,7 +55,7 @@ public class controller : MonoBehaviour {
 		for (int i = 0; i < flappies.Length; i++){
 			tot_score += flappies[i].own_score;
 		}
-		print (tot_score);
+	//	print (tot_score);
 
 
 		for(int j = 0; j < flappies.Length; j++){
@@ -89,7 +89,7 @@ public class controller : MonoBehaviour {
 
 		}
 		if (mutation_level > 0.0f) {
-			mutation_level = mutation_level - 0.01f;
+		//	mutation_level = mutation_level - 0.01f;
 		}
 
 		//cross stuff
@@ -103,9 +103,10 @@ public class controller : MonoBehaviour {
 					Xweights[v] = Xweights[v+1];
 					Xweights[v+1] = old_weightX; */
 
-					float old_weightY = Yweights[v];
+				//REAL CROSSOVER
+				float old_weightY = Yweights[v];
 					Yweights[v] = Yweights[v+1];
-					Yweights[v+1] = old_weightY;
+				Yweights[v+1] = old_weightY;
 		/*		}
 				else if (r2 == 1){
 					float old_weightY = Yweights[v];
