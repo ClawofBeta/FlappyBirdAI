@@ -51,9 +51,11 @@ public class controller : MonoBehaviour {
 		//yield return new WaitForSeconds(5);
 		//print ("2");
 		int tot_score = 0;
+
 		for (int i = 0; i < flappies.Length; i++){
 			tot_score += flappies[i].own_score;
 		}
+		print (tot_score);
 
 
 		for(int j = 0; j < flappies.Length; j++){
@@ -92,9 +94,9 @@ public class controller : MonoBehaviour {
 
 		//cross stuff
 		for (int v = 0; v < flappies.Length; v += 2){
-			int r1 = Random.Range(0,4);
+			int r1 = Random.Range(0,5);
 
-			if(r1 >= 2){
+			if(r1 >= 3){
 			//	int r2 = Random.Range (0,3);
 			//	if(r2 == 0 || r2 == 1){
 		/*			float old_weightX = Xweights[v];
