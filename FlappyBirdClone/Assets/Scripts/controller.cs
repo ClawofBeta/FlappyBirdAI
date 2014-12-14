@@ -83,6 +83,11 @@ public class controller : MonoBehaviour {
 				float n_wh = flappy_parent.wh + Random.Range(-mutation_level, mutation_level);
 				Hweights[j] = n_wh;
 			}
+
+
+		}
+		if (mutation_level > 0.0f) {
+			mutation_level = mutation_level - 0.01f;
 		}
 
 		//cross stuff
@@ -151,8 +156,9 @@ public class controller : MonoBehaviour {
 			fs.nn.wy = Yweights[k];
 			fs.nn.wh = Hweights[k];
 
+			//color stuff
 			sr = fs.GetComponent<SpriteRenderer>();
-			sr.color = new Color(fs.nn.wx, fs.nn.wy, fs.nn.wh);
+			sr.color = new Color(fs.nn.wx /1.0f , fs.nn.wy / 1.0f, fs.nn.wh / 1.0f);
 
 			fs.next_pipe = fs.pipe_placeholder;
 			fs.transform.position = anchors[k].position;
